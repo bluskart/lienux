@@ -5,6 +5,9 @@ abbr tempalte template
 abbr vodi void
 abbr (vodi) (void)
 
+set confirm
+set display+=lastline
+
 " camelCase => camel_case
 vnoremap ,case :s/\v\C(([a-z]+)([A-Z]))/\2_\l\3/g<CR>
 
@@ -77,6 +80,7 @@ call dein#add('tmux-plugins/vim-tmux')
 " call dein#add('iCyMind/NeoSolarized')
 " call dein#add('joshdick/onedark.vim')
 " call dein#add('neomake/neomake')
+" call dein#add('editorconfig/editorconfig-vim')
 
 " }}}
 call dein#end()
@@ -115,7 +119,8 @@ autocmd VimEnter,Colorscheme * :hi ColorColumn guibg=#840000
 set tabstop=8
 set softtabstop=8
 set shiftwidth=0
-set cindent
+set autoindent
+set smartindent
 " ...round tabs to multiple of shiftwidth
 " set shiftround
 " set expandtab
@@ -138,7 +143,8 @@ set showcmd
 set cursorline " cursorcolumn
 " autocmd WinLeave * setlocal nocursorline
 " autocmd WinEnter * setlocal cursorline
-set wildmode=longest:full,full
+set wildmenu
+set wildmode=list:full,full
 " set lazyredraw
 set showmatch
 set mouse=a
