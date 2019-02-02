@@ -1,0 +1,73 @@
+let mapleader=','
+let g:mapleader=','
+
+set bg=dark
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set expandtab
+set number
+set relativenumber
+set cc=80
+set cmdheight=2
+set ignorecase
+set smartcase
+set scrolloff=1
+set scrolljump=5
+set sidescrolloff=5
+
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+
+autocmd BufEnter term://* startinsert
+
+silent !mkdir ~/.config/nvim/backup > /dev/null 2>&1
+set backupdir=~/.config/nvim/backup
+set directory=~/.config/nvim/backup
+set backup
+set writebackup
+
+" Remove search highlights
+nnoremap <leader><space> :nohlsearch<CR>
+" Open folds
+nnoremap <space> za
+" Word wrap navigation
+nnoremap j gj
+nnoremap k gk
+" jk is escape
+inoremap jk <esc>
+" Move line vertically
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Move multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+" Highlight last inserted text
+nnoremap gV `[v`]
+" Make escape work in the Neovim terminal.
+tnoremap <Esc> <C-\><C-n>
+" Make navigation into and out of Neovim terminal splits nicer.
+tnoremap <C-h> <C-\><C-N><C-w>h
+tnoremap <C-j> <C-\><C-N><C-w>j
+tnoremap <C-k> <C-\><C-N><C-w>k
+tnoremap <C-l> <C-\><C-N><C-w>l
+" consistent with C and D
+nnoremap Y y$
+" Tabs
+nnoremap tn :tabnew<Space>
+nnoremap tk :tabnext<CR>
+nnoremap tj :tabprev<CR>
+nnoremap th :tabfirst<CR>
+nnoremap tl :tablast<CR>
+" quick macro repeat
+nnoremap Q @q
+" quicker commands
+noremap ; :
+noremap q; q:
+" source config file
+nnoremap <Leader>v :so $MYVIMRC<CR>
+nnoremap <Leader>e :e $MYVIMRC<CR>
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
